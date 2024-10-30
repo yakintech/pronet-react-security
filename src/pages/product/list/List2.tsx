@@ -38,8 +38,7 @@ function List2() {
 export default List2
 
 
-//CleanUp Kullanım Alanları
-//1. Event Listener
-//2. Fetch Request
-//3. SetInterval
-//4. socket connection
+//Güvenlik açısından cleanup function önemi
+// 1. Ağ trafiğinin azaltılması
+// 2. Websocket (Socket.io, SignalR) bağlantılarının kapatılması. Böylelikle sunucu kaynakları boşa çıkar.
+//3. Bellek sızıntılarının önlenmesi. Event listener'lar, setInterval, setTimeout vb. fonksiyonlar bellekte yer kaplar ve sayfa değiştiğinde bellekten silinmezler. Bu yüzden sayfa değiştiğinde bu fonksiyonları temizlemek önemlidir.

@@ -6,12 +6,14 @@ import Home from './pages/home'
 import CategoryRoutes from './pages/category'
 import OrderRoutes from './pages/order'
 import List2 from './pages/product/list/List2'
+import PButton from './components/core-components/button'
 
 function App() {
 
 
   return <>
-    <ul>
+  <PButton category="primary">Click</PButton>
+    <ul style={{display:'flex', justifyContent:'space-between'}}>
       <li><Link to={'/'}>Home</Link></li>
       <li><Link to={'/products'}>Products</Link></li>
       <li><Link to={'/categories'}>Categories</Link></li>

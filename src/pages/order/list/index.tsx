@@ -1,5 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { baseService } from '../../../config/api'
+import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid'
+import { trTR } from '@mui/x-data-grid/locales';
+import { Button } from '@mui/material';
+import PDataGrid from '../../../components/core-components/data-grid';
+
 
 function List() {
 
@@ -12,15 +17,40 @@ function List() {
     })
 
 
+    const columns: GridColDef[] = [
+        {
+            field: 'id',
+            headerName: 'ID',
+            flex: 1
+        },
+        {
+            field: "customerId",
+            headerName: "Customer ID",
+            flex: 1
+        },
+        {
+            field: "orderDate",
+            headerName: "Order Date",
+            flex: 1
+        },
+       
+    ]
+
     return <>
-        <h1>Length: {data?.length}</h1>
-        <ul>
-            {isLoading && <p>Loading...</p>}
-            {error && <p>Error</p>}
-            {data && data.map((order: any) => (
-                <li key={order.id}>{order.customerId}</li>
-            ))}
-        </ul>
+        <div style={{ height: 400, width: '100%' }}>
+            <PDataGrid
+                rows={data ?? []}
+                columns={columns}
+                slots={{ toolbar: GridToolbar }}
+                slotProps={{
+                  toolbar: {
+                    showQuickFilter: true,
+                  },
+                }}
+                localeText={trTR.components.MuiDataGrid.defaultProps.localeText}
+            />
+        </div>
+
     </>
 }
 

@@ -5,3 +5,12 @@ dsznajder.es7-react-js-snippets
 Data Fetching Libraries
 https://swr.vercel.app/
 
+
+Cleanup function
+https://react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed
+//CleanUp Kullanım Alanları
+//1. Event Listener
+//2. Fetch Request
+//3. SetInterval
+//4. socket connection
+
