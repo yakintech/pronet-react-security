@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { axiosInstance } from '../../../config/axiosInstance'
+import { useProducts } from './hooks/useProducts'
 
 function List() {
 
-  const [products, setproducts] = useState([])
-
-
-  useEffect(() => {
-
-    let interval = setInterval(() => {
-      console.log('products')
-    }, 1000);
-
-    axiosInstance.get('products')
-      .then(response => {
-
-        setproducts(response.data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
-
-    return () => {
-      clearInterval(interval)
-    }
-
-  }, [])
-
+  const { products, loading, error } = useProducts()
+  
   return <>
-
+    <ul>
+      {
+        products.map((product: any) => {
+          return <li key={product.id}>{product.name}</li>
+        })
+      }
+    </ul>
   </>
 }
 
