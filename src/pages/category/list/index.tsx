@@ -5,7 +5,7 @@ import { baseService } from '../../../config/api'
 function List() {
 
     const { data, isLoading } = useSWR("categories", async () => {
-        return baseService.getAll('categories')
+        return baseService.getAll('categoriessss')
     })
 
 
@@ -14,7 +14,7 @@ function List() {
             isLoading ? <h1>Loading...</h1> : (
                 <ul>
                     {
-                        data.map((category: any) => {
+                        data?.map((category: any) => {
                             return <li key={category.id}>{category.name}</li>
                         })
                     }
