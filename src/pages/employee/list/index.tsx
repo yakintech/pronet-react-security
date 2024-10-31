@@ -2,24 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { getTokenStorage } from '../../../util/tokenStorage'
 import axios from 'axios'
 import { baseServiceWithToken } from '../../../config/api'
+import { useQuery } from '@tanstack/react-query'
 
 function List() {
 
-    const [employees, setemployees] = useState([])
-
-    useEffect(() => {
-
-        baseServiceWithToken.getAll('employees')
-            .then((res: any) => {
-                setemployees(res)
-            })
-
-    }, [])
+    const { data } = useQuery({
+        queryKey: ['employees'],
+        queryFn: async () => {
+            return baseServiceWithToken.getAll<EmployeeModel>('employees')
+        }
+    })
 
 
     return <>
         <ul>
-            {employees.map((employee: any, key) => {
+            {data?.map((employee, key) => {
                 return <li key={key}>{employee.name}</li>
             })}
         </ul>
@@ -28,3 +25,11 @@ function List() {
 }
 
 export default List
+
+
+
+interface EmployeeModel {
+    name: string
+    lastname: string
+    birthDate: string
+}

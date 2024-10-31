@@ -26,11 +26,11 @@ export const baseService = {
 
 
 export const baseServiceWithToken = {
-    getAll: async (url: string) => {
+    getAll: async<T> (url: string) : Promise<T[]> => {
 
         let token = getTokenStorage()
         try {
-            const response = await axiosInstance2.get(url, {
+            const response = await axiosInstance2.get<T[]>(url, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

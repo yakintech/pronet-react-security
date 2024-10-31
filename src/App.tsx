@@ -13,8 +13,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import Login from './pages/auth/Login'
 import { checkLogin } from './store/authSlice'
 import { AppDispatch } from './store'
+import XSSSample, { Unsafecomponent, UserProfileImage } from './pages/other/XSSSample'
 
 function App() {
+
+
+  return <UserProfileImage profileImage="javascript:alert('test')" />
+  return <Unsafecomponent content="<img src=x onerror=alert('XSS')>"/>
+
 
   const state = useSelector((state: any) => state)
   let dispatch: AppDispatch = useDispatch()
