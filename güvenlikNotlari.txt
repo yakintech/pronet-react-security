@@ -1,1 +1,3 @@
 1) CleanUp Function
+2) Login vb. public sayfalarda mutlaka captcha olmalı ( brute force ataklarına karşı )
+3) Form kütüphaneleri kullanılmalı
