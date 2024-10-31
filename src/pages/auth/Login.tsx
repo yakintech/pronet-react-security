@@ -1,36 +1,52 @@
-import React, { useState } from 'react'
 import { authService } from '../../service/auth'
 import { useDispatch } from 'react-redux'
 import { setTokenStorage } from '../../util/tokenStorage'
+import { useForm } from 'react-hook-form';
+import { Inputs } from './inputs';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+
+const loginFormSchema = yup.object().shape({
+    email: yup.string().email().required(),
+    password: yup.string().required()
+})
 
 function Login() {
 
-    const [email, setemail] = useState("cagatay@mail.com")
-    const [password, setpassword] = useState("")
+    const { register, handleSubmit, formState: { errors, submitCount } } = useForm<Inputs>({
+        resolver: yupResolver(loginFormSchema)
+    });
+
 
     const dispatch = useDispatch()
 
-    const login = () => {
-        authService.login(email, password)
-            .then((res: any) => {
-                setTokenStorage(res.token)
-                dispatch({type:"auth/login", payload: {email}})
-            })
+    const login = (values: any) => {
+        if (submitCount < 10) {
+            authService.login(values.email, values.password)
+                .then((res: any) => {
+                    setTokenStorage(res.token)
+                    dispatch({ type: "auth/login", payload: { email: values.email } })
+                })
+        }
     }
 
     return <>
         <h1>Login Page</h1>
-        <div>
-            <label htmlFor="">EMail</label>
-            <input type="text" value={email} onChange={(e) => setemail(e.target.value)} />
-        </div>
-        <div>
-            <label htmlFor="">Password</label>
-            <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} />
-        </div>
-        <div>
-            <button onClick={login}>Login</button>
-        </div>
+        <form onSubmit={handleSubmit(login)}>
+            <div>
+                <label htmlFor="">EMail</label>
+                <input type="text"  {...register("email", { required: true })} />
+                {errors.email && <span style={{ color: "red" }}>{errors.email.message}</span>}
+            </div>
+            <div>
+                <label htmlFor="">Password</label>
+                <input type="password" {...register("password")} />
+            </div>
+            <div>
+                <button type='submit'>Login</button>
+            </div>
+        </form>
     </>
 }
 

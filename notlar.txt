@@ -14,3 +14,8 @@ https://react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed
 //3. SetInterval
 //4. socket connection
 
+
+Form Kütüphaneleri
+https://www.react-hook-form.com/
+https://formik.org/
+
