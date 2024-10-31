@@ -3,11 +3,11 @@
 3) Form kütüphaneleri kullanılmalı ( formik, react hook form) Validationların detaylı yazılabilmesi için ekstra şema kütüphaneleri kullanılmalı ( YUP )
 4) XSS saldırılarına karşı https://www.npmjs.com/package/dompurify
 5) Content Security Policy ( Javascript, CSS, resim )
-Temel CSP Yönergeleri
+Temel CSP Yönergeleri ( nginx ve IIS üzerinden de yönetilebilir )
 * default-src: Tüm kaynak türleri için varsayılan kaynakları belirtir
 * script-src: Javascript dosyaları için hangi kaynaklardan gelecekler
 * style-src: CSS stillerinin hangi kaynaklardan geleceğini
 * img-src: Imagelerin hangi kaynaktan geleceğini
 * connect-src WebSocket gibi ağ bağlantılarının yapılacağı kaynak
-
 6) Clickjacking Saldırısı: Kullanıcıyı yanıltarak bir sayfa içerisinde görünmez bir button vb. elementle işlem yapmaya zorlaması.
+7) ratelimiter ve slowdown ( sunucuya da koyabiliriz. nginx, iis vb.) https://www.npmjs.com/package/express-slow-down
