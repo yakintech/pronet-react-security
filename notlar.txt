@@ -19,3 +19,8 @@ Form Kütüphaneleri
 https://www.react-hook-form.com/
 https://formik.org/
 
+
+JWT Handbook
+https://assets.ctfassets.net/2ntc334xpx65/o5J4X472PQUI4ai6cAcqg/13a2611de03b2c8edbd09c3ca14ae86b/jwt-handbook-v0_14_1.pdf?mem=button&mkt_tok=ODU1LVFBSC02OTkAAAGQl-I9cMGE5TF-Inu9ANKC1j6KWF1ljaFSzdIPbrmBdts0j1uEBL0J5D10nn5nmTPc8750Ab-m0ekPEW_eMdHLqHk_TgtOvQIc5Xh3lsxkf85qkThUWw
+
+

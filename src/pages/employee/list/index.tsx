@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getTokenStorage } from '../../../util/tokenStorage'
 import axios from 'axios'
+import { baseServiceWithToken } from '../../../config/api'
 
 function List() {
 
@@ -8,24 +9,18 @@ function List() {
 
     useEffect(() => {
 
-        let token = getTokenStorage()
-        axios.get('http://localhost:3002/api/employees', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((res) => {
-            setemployees(res.data)
-        }).catch((err) => {
-            console.log(err)
-        })
+        baseServiceWithToken.getAll('employees')
+            .then((res: any) => {
+                setemployees(res)
+            })
 
     }, [])
 
 
     return <>
         <ul>
-            {employees.map((employee: any) => {
-                return <li key={employee._id}>{employee.name}</li>
+            {employees.map((employee: any, key) => {
+                return <li key={key}>{employee.name}</li>
             })}
         </ul>
 

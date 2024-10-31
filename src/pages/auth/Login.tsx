@@ -26,6 +26,7 @@ function Login() {
             authService.login(values.email, values.password)
                 .then((res: any) => {
                     setTokenStorage(res.token)
+                    localStorage.setItem("refreshToken", res.refreshToken)
                     dispatch({ type: "auth/login", payload: { email: values.email } })
                 })
         }
