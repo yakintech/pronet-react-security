@@ -11,3 +11,15 @@ Temel CSP Yönergeleri ( nginx ve IIS üzerinden de yönetilebilir )
 * connect-src WebSocket gibi ağ bağlantılarının yapılacağı kaynak
 6) Clickjacking Saldırısı: Kullanıcıyı yanıltarak bir sayfa içerisinde görünmez bir button vb. elementle işlem yapmaya zorlaması.
 7) ratelimiter ve slowdown ( sunucuya da koyabiliriz. nginx, iis vb.) https://www.npmjs.com/package/express-slow-down
+
+8) Dosya Yükleme
+* Dosya Tipi Kontrolü
+* Dosya Boyutu Kontrolü
+* Dosya yükleme işlemlerinde HTTPS kullanılması
+* Dosya yükleme işlemine özel rate limiter
+* API tarafında dosya adının benzersiz bir dosya adı veya GUID ile adlandırılması.
+* Yüklenilen dosyanın çeşitli anti-virüs programlarıyla taranması. Meta vb. verileri, gizli içeriklerin temizlenmesi.
+* Mime type kontrolünün yapılması
+* Dosya yükleme loglarının tutulması
+* File Storage Location ( dosyayı yüklediğimiz alandaki izinler. execute ve readonly izni KAPALI OLMALI! )
+https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
