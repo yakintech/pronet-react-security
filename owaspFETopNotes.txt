@@ -1,0 +1,14 @@
+1) Cross Site Scripting ( XSS )
+2) Cross Site Request Forgery ( CSRF )
+- Token Kullanımı
+- SameSite Cookie Ayarı
+- Referer ve Origin Başlığı
+3) Content Security Policy
+4) Validation ( React Hook Form - YUP Validation(Schema Validation))
+5) Data Storage ( LocalStorage ) HttpOnly-Secure Cookie de saklamak
+6) Error Handling
+7) Zararlı Dosya Upload'a karşı koruma
+8) Third Party Library ( Package ) Güvenliği
+9) Zayıf Şifre Politikası ( two factor auth)
+10) CORS Settings
+11) JWT

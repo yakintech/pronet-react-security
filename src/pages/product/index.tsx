@@ -1,19 +1,23 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import List from './list'
-import Add from './add'
-import Detail from './detail'
-import List2 from './list/List2'
+import path from "path";
+import { Outlet } from "react-router-dom";
+import List from "./list";
+import Add from "./add";
+import Detail from "./detail";
 
-function ProductRoutes() {
-    return <>
-        <Routes>
-            <Route path='' element={<List />} />
-            <Route path='add' element={<Add />} />
-            <Route path=':id' element={<Detail />} />
-            <Route path='list2' element={<List2  />} />
-        </Routes>
-    </>
-}
 
-export default ProductRoutes
+
+export const productRoutes = [
+    {
+        path: '/products',
+        element: <>
+            <h1>Product Layout</h1>
+            <Outlet />
+            <h3>Product Footer</h3>
+        </>,
+        children: [
+            { path: '', element: <List /> },
+            { path: 'add', element: <Add /> },
+            { path: ':id', element: <Detail /> }
+        ]
+    }
+]

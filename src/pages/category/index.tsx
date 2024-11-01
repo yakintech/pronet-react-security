@@ -1,13 +1,17 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import List from './list'
 
-function CategoryRoutes() {
-    return (
-        <Routes>
-            <Route path='/' element={<List />} />
-        </Routes>
-    )
-}
-
-export default CategoryRoutes
+export const categoryRoutes = [
+    {
+        path: '/',
+        element: <>
+            <h1>Category Layout</h1>
+            <Outlet />
+            <h3>Category Footer</h3>
+        </>,
+        children: [
+            { path: '', element: <List /> },
+        ]
+    }
+]

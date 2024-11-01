@@ -1,13 +1,18 @@
+
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import List from './list'
 
-function OrderRoutes() {
-    return <>
-        <Routes>
-            <Route path='' element={<List />} />
-        </Routes>
-    </>
-}
-
-export default OrderRoutes
+export const orderRoutes = [
+    {
+        path: '/orders',
+        element: <>
+            <h1>Order Layout</h1>
+            <Outlet />
+            <h3>Order Footer</h3>
+        </>,
+        children: [
+            {path: '', element: <List />},
+        ]
+    }
+]
