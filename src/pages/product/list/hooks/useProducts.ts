@@ -11,7 +11,6 @@ export function useProducts() {
 
         baseService.getAll('products').then((data) => {
             setproducts(data)
-            throw new Error('Error')
         })
 
     }, [])
