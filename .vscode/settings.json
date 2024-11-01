@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "yakintech",
+        "projectKey": "yakintech_pronet-react-security"
+    }
+}

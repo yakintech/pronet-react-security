@@ -28,3 +28,4 @@ https://assets.ctfassets.net/2ntc334xpx65/o5J4X472PQUI4ai6cAcqg/13a2611de03b2c8e
 
 Yapılacaklar
 redux chrome ext
+nodejs repl paket tarama kodu

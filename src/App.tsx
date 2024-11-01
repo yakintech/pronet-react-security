@@ -35,6 +35,8 @@ function App() {
     dispatch({ type: 'auth/logout' })
   }
 
+  let name = 3
+  
   return <>
     {
       state.auth.isLoading ? <h1>loading...</h1> :

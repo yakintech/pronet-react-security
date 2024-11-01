@@ -23,3 +23,17 @@ Temel CSP Yönergeleri ( nginx ve IIS üzerinden de yönetilebilir )
 * Dosya yükleme loglarının tutulması
 * File Storage Location ( dosyayı yüklediğimiz alandaki izinler. execute ve readonly izni KAPALI OLMALI! )
 https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html
+
+9) Paket Yönetimi
+Bir paketin güvenli olduğunu nasıl anlarız?
+* İndirilme sayısı
+* Star sayısı
+* Issues bölümü (açılan issuelara cevap verilmiş mi?)
+* npm audit ile güvenlik açığı kontrolü
+NPM AUDIT
+package.lock.js dosyasındaki tüm bağımlılıkları tarar ve güvenlik açıklarını, uyarılarını kontrol eder.
+- Low, moderate, high, critical
+- güvenlik açığının türü,
+Github security alert aktif hale getirilmesi. Dependabot alerts sayesinde haftalık güvenlik paket analizi tarafımıza verilir.
+https://snyk.io/ ile paket analizi
+
