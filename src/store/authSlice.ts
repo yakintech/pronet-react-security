@@ -42,8 +42,11 @@ const authSlice = createSlice({
         })
 
         builder.addCase(checkLogin.fulfilled, (state: any, action: any) => {
+           
+            const { email, roles, pageRoles } = action.payload.data
             state.isLoading = false
             state.isLogin = true
+            state.user = { email, roles, pageRoles }
         })
 
         builder.addCase(checkLogin.rejected, (state: any, action: any) => {

@@ -4,7 +4,7 @@ import List from './list'
 
 export const categoryRoutes = [
     {
-        path: '/',
+        path: '/categories',
         element: <>
             <h1>Category Layout</h1>
             <Outlet />
