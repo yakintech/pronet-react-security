@@ -37,7 +37,11 @@ package.lock.js dosyasındaki tüm bağımlılıkları tarar ve güvenlik açık
 Github security alert aktif hale getirilmesi. Dependabot alerts sayesinde haftalık güvenlik paket analizi tarafımıza verilir.
 https://snyk.io/ ile paket analizi
 
-10) CORS Policy
+10) Env Yönetimi
+https://www.npmjs.com/package/cross-env
+cross-env veya benzer bir paketle env yönetimi dev, prod, test vb. ortamlar için özelleştirilebilir.
+
+11) CORS Policy
 CORS tarayıcı tabanlı bir güvenlik katmanıdır.
 Origin, Methods, Headers
 
