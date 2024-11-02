@@ -1,6 +1,9 @@
 VS Code React Ext
 dsznajder.es7-react-js-snippets
 
+Sonar Lint Ext
+SonarSource.sonarlint-vscode
+
 
 Data Fetching Libraries
 https://swr.vercel.app/
