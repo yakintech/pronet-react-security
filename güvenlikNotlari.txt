@@ -45,3 +45,6 @@ cross-env veya benzer bir paketle env yönetimi dev, prod, test vb. ortamlar iç
 CORS tarayıcı tabanlı bir güvenlik katmanıdır.
 Origin, Methods, Headers
 
+
+12) production ortamında console loglarının temizlenmesi
+https://www.npmjs.com/package/babel-plugin-transform-remove-console

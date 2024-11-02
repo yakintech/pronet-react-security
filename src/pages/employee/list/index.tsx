@@ -12,11 +12,14 @@ function List() {
     })
 
 
-    return <ul>
-        {data?.map((employee, key) => {
-            return <li key={key}>{employee.name}</li>
-        })}
-    </ul>
+    return <>
+        <h1>Employee List</h1>
+        <ul>
+            {data?.map((employee, key) => {
+                return <li key={key}>{employee.name}</li>
+            })}
+        </ul>
+    </>
 }
 
 export default List
@@ -28,3 +31,8 @@ interface EmployeeModel {
     lastname: string
     birthDate: string
 }
+
+
+
+
+
