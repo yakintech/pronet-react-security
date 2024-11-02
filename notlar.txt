@@ -30,6 +30,7 @@ https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkp
 
 
 
-Yapılacaklar
-redux chrome ext
-nodejs repl paket tarama kodu
+JWT Login With localStorage
+https://github.com/yakintech/pronet-react-security/tree/4d201a04ebbf8d5b09ad3f8e327a036340c6497c
+
+

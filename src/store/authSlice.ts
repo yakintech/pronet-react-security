@@ -1,16 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getTokenStorage } from "../util/tokenStorage";
 import axios from "axios";
 
 
 export const checkLogin = createAsyncThunk(
     'auth/checkLogin',
     async () => {
-        const token = getTokenStorage()
         return axios.get('http://localhost:3002/check', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+            withCredentials: true
         })
     }
 )

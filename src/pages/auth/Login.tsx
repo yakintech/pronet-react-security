@@ -1,6 +1,5 @@
 import { authService } from '../../service/auth'
 import { useDispatch } from 'react-redux'
-import { setTokenStorage } from '../../util/tokenStorage'
 import { useForm } from 'react-hook-form';
 import { Inputs } from './inputs';
 import * as yup from 'yup';
@@ -25,12 +24,11 @@ function Login() {
         if (submitCount < 10) {
             authService.login(values.email, values.password)
                 .then((res: any) => {
-                    setTokenStorage(res.token)
-                    localStorage.setItem("refreshToken", res.refreshToken)
                     dispatch({ type: "auth/login", payload: { email: values.email, roles: res.user.roles, pageRoles: res.user.pageRoles } })
                 })
         }
     }
+
 
     return <>
         <h1>Login Page</h1>

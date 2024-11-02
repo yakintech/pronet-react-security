@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -7,9 +8,13 @@ function Dashboard({ children }: any) {
     const dispatch = useDispatch()
 
     const logout = () => {
-        localStorage.removeItem('token')
-        dispatch({ type: 'auth/logout' })
-      }
+
+        axios.post('http://localhost:3002/auth/logout', {}, { withCredentials: true })
+            .then((res) => {
+                dispatch({ type: 'auth/logout' })
+            })
+
+    }
 
     return <>
         <ul style={{ display: 'flex', justifyContent: 'space-between' }}>

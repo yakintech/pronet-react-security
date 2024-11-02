@@ -1,4 +1,3 @@
-import { getTokenStorage, setTokenStorage } from "../util/tokenStorage"
 import { axiosInstance, axiosInstance2 } from "./axiosInstance"
 
 
@@ -14,7 +13,9 @@ export const baseService = {
 
     getAll: async (url: string) => {
         try {
-            const response = await axiosInstance.get(url)
+            const response = await axiosInstance.get(url, {
+                withCredentials: true
+            })
             return response.data
 
         } catch (error) {
@@ -26,30 +27,23 @@ export const baseService = {
 
 
 export const baseServiceWithToken = {
-    getAll: async<T> (url: string) : Promise<T[]> => {
+    getAll: async<T>(url: string): Promise<T[]> => {
 
-        let token = getTokenStorage()
         try {
             const response = await axiosInstance2.get<T[]>(url, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
+                withCredentials: true
+
             })
             return response.data
 
         } catch (error: any) {
             //response 401 ise
             if (error.response.status == 401) {
-                //eğer 401 hatasıysa refresh token ile yeni token almayı DENE!
-                let refreshToken = localStorage.getItem("refreshToken")
-                const refreshTokenResponse = await axiosInstance2.post('refreshToken', { refreshToken })
 
-                setTokenStorage(refreshTokenResponse.data.token)
-            
+                await axiosInstance2.post('refreshToken', { withCredentials: true })
+
                 const response = await axiosInstance2.get(url, {
-                    headers: {
-                        Authorization: `Bearer ${refreshTokenResponse.data.token}`
-                    }
+                    withCredentials: true,
                 })
 
                 return response.data

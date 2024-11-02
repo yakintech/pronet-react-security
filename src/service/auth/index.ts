@@ -8,7 +8,11 @@ export const authService = {
             var response = await axios.post('http://localhost:3002/api/login', {
                 email,
                 password
-            })
+            },
+            {
+                withCredentials: true
+            }
+        )
 
             return response.data
         } catch (error) {

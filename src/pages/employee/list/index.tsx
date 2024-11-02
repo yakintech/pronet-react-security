@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { getTokenStorage } from '../../../util/tokenStorage'
-import axios from 'axios'
+
 import { baseServiceWithToken } from '../../../config/api'
 import { useQuery } from '@tanstack/react-query'
 
@@ -14,14 +12,11 @@ function List() {
     })
 
 
-    return <>
-        <ul>
-            {data?.map((employee, key) => {
-                return <li key={key}>{employee.name}</li>
-            })}
-        </ul>
-
-    </>
+    return <ul>
+        {data?.map((employee, key) => {
+            return <li key={key}>{employee.name}</li>
+        })}
+    </ul>
 }
 
 export default List
