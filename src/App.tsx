@@ -22,12 +22,7 @@ function App() {
   }, [])
 
 
-  const logout = () => {
-    localStorage.removeItem('token')
-    dispatch({ type: 'auth/logout' })
-  }
 
-  let name = 3
 
   return <>
     {

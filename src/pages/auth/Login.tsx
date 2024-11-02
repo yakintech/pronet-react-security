@@ -27,7 +27,7 @@ function Login() {
                 .then((res: any) => {
                     setTokenStorage(res.token)
                     localStorage.setItem("refreshToken", res.refreshToken)
-                    dispatch({ type: "auth/login", payload: { email: values.email, roles: res.roles, pageRoles: res.pageRoles } })
+                    dispatch({ type: "auth/login", payload: { email: values.email, roles: res.user.roles, pageRoles: res.user.pageRoles } })
                 })
         }
     }

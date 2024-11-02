@@ -36,8 +36,7 @@ function List() {
        
     ]
 
-    return <>
-        <div style={{ height: 400, width: '100%' }}>
+    return  <div style={{ height: 400, width: '100%' }}>
             <PDataGrid
                 rows={data ?? []}
                 columns={columns}
@@ -50,8 +49,6 @@ function List() {
                 localeText={trTR.components.MuiDataGrid.defaultProps.localeText}
             />
         </div>
-
-    </>
 }
 
 export default List
